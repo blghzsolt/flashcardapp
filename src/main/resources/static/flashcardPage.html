@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlashcardPage</title>
+    <link rel="stylesheet" href="css/flashcardPage.css">
+</head>
+<body>
+
+<div id="app-container">
+    <button id="back-to-decks" onclick="setView('deck-list-view')" style="display:none; margin-bottom: 20px;">
+        &larr; Vissza a csomagokhoz
+    </button>
+    <div id="deck-list-view" class="view">
+        <div class="deck-header">
+        <h1>FlashCardApp</h1>
+            <button id="logout-btn" onclick="logout()">Kijelentkezés</button>
+        </div>
+        <input type="text" id="new-deck-name" placeholder="Új csomag neve">
+        <div class="dekkes">
+        <button onclick="handleAddDeck()">Új csomag létrehozása</button>
+            <button onclick="loadMyDecks()">Saját Csomagok Megtekintése</button>
+        <button onclick="loadAllDecks()">Összes Csomag Megtekintése</button>
+        </div>
+        <h2>Csomagjaid</h2>
+        <ul id="deck-list">
+        </ul>
+    </div>
+
+    <div id="cards-view" class="view" style="display:none;">
+        <h1 id="cards-view-title">Kártyák kezelése:</h1>
+
+        <h2>Új kártya hozzáadása</h2>
+        <label for="new-card-front">Előlap:</label>
+        <textarea id="new-card-front" placeholder="pl. apple"></textarea>
+
+        <label for="new-card-back">Hátlap:</label>
+        <textarea id="new-card-back" placeholder="alma"></textarea>
+
+        <button onclick="handleAddCard()">Kártya mentése</button>
+
+        <h2>Kártyák listája</h2>
+        <table id="card-table">
+            <thead>
+            <tr>
+                <th>Előlap</th>
+                <th>Hátlap</th>
+                <th>Műveletek</th>
+            </tr>
+            </thead>
+            <tbody id="card-table-body">
+            </tbody>
+        </table>
+
+        <button onclick="startReview()" style="margin-top: 20px;">Kártyanézet indítása</button>
+    </div>
+
+    <div id="review-view" class="view" style="display:none;">
+        <h1 id="review-view-title">Kártyák:</h1>
+        <p id="review-status">0/0 kártya</p>
+
+        <div class="flashcard-container">
+            <div id="flashcard" onclick="flipCard()">
+                <div class="card-face card-front" id="card-front-content"></div>
+                <div class="card-face card-back" id="card-back-content"></div>
+            </div>
+        </div>
+
+        <div class="navigation-buttons">
+            <button onclick="prevCard()">Előző</button>
+            <button onclick="nextCard()">Következő</button>
+        </div>
+    </div>
+</div>
+
+<script src="javascript/flashcardPage.js"></script>
+</body>
+</html>

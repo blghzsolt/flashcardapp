@@ -1,0 +1,222 @@
+body {
+    background-color: #f4f7f6;
+    background: linear-gradient(to bottom, #cbe7ff, #ffffff);
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+#app-container {
+    width: 100%;
+    max-width: 800px;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dekkes{
+        display: flex;
+        justify-content: space-between;
+}
+
+.deck-header h1 {
+    margin: 0;
+    padding-bottom: 10px;
+    display: inline-block;
+    width: auto;
+}
+
+.deck-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    margin: 5px 0;
+    font-weight: 600;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 15px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+    resize: vertical;
+}
+
+#deck-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.deck-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #ecf0f1;
+    border-left: 5px solid #3498db;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+.deck-item:hover {
+    background-color: #dde1e2;
+}
+
+.deck-info {
+    flex-grow: 1;
+    padding-right: 15px;
+}
+
+.deck-info strong {
+    font-size: 1.1em;
+    color: #2c3e50;
+}
+
+.deck-actions button {
+    margin-left: 10px;
+    padding: 8px 12px;
+    font-size: 0.9em;
+}
+
+#cards-view table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+#cards-view th, #cards-view td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    vertical-align: top;
+}
+
+#cards-view th {
+    background-color: #34495e;
+    color: white;
+}
+
+#cards-view td button {
+    padding: 5px 10px;
+    margin: 2px;
+}
+
+#review-view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.flashcard-container {
+    perspective: 1000px;
+    width: 90%;
+    max-width: 400px;
+    height: 250px;
+    margin: 20px 0;
+}
+
+#flashcard {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    position: relative;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.card-front {
+    background-color: #f39c12;
+    color: white;
+    z-index: 2;
+}
+
+.card-back {
+    background-color: #2ecc71;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.flipped {
+    transform: rotateY(180deg);
+}
+
+.navigation-buttons {
+    margin-top: 20px;
+}
+
+.navigation-buttons button {
+    margin: 0 10px;
+    min-width: 120px;
+}
+
+@media (max-width: 600px) {
+    #app-container {
+        padding: 15px;
+    }
+    .deck-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .deck-actions {
+        margin-top: 10px;
+    }
+    .deck-actions button {
+        margin: 5px 5px 0 0;
+    }
+    .flashcard-container {
+        height: 200px;
+    }
+    #cards-view td, #cards-view th {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+}
