@@ -220,3 +220,49 @@ input[type="text"], textarea {
         padding: 8px;
     }
 }
+.theme-toggle {
+    cursor: pointer;
+    user-select: none;
+    font-size: 14px;
+    color: #444;
+}
+
+body.dark-mode .theme-toggle {
+    color: #ddd;
+}
+
+.theme-toggle:hover {
+    text-decoration: underline;
+}
+
+#app-container,
+.login {
+    background: white;
+    transition: background 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+    background: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode #app-container,
+body.dark-mode .login {
+    background: #1e1e1e;
+    color: #e0e0e0;
+}
+
+body.dark-mode input,
+body.dark-mode button {
+    background: #2b2b2b;
+    color: #ffffff;
+    border: 1px solid #444;
+}
+
+body.dark-mode input::placeholder {
+    color: #aaaaaa;
+}
+
+body.dark-mode button:hover {
+    background: #444;
+}
